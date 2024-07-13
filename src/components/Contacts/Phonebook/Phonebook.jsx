@@ -41,7 +41,7 @@ export const Phonebook = () => {
     )
 }
 
-PhoneBook.propTypes = {
+Phonebook.propTypes = {
     contacts: PropTypes.array,
     filter: PropTypes.string,
     name: PropTypes.string,
