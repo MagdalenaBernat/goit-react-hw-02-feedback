@@ -1,6 +1,10 @@
+import { Statistics } from "./Statistics/Statistics";
+import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
+
 export const App = () => {
   return (
-    <div
+    <>
+      <div
       style={{
         height: '100vh',
         display: 'flex',
@@ -9,8 +13,12 @@ export const App = () => {
         fontSize: 40,
         color: '#010101'
       }}
-    >
-      React homework template
-    </div>
+      >
+      React homework 2 - feedback
+      </div>
+      <Statistics good="good" neutral="neutral" bad="bad" total="total" positivePercentage="positivePercentage" /> 
+      <FeedbackOptions options="options" onLeaveFeedback="options" />
+    </>
   );
 };
+
