@@ -1,18 +1,18 @@
 import { useState } from "react";
-import { Statistics } from "./Statistics/Statistics";
-import { FeedbackStats } from "./FeedbackStats/FeedbackStats";
-import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
-import { Section } from "./Section/Section"
-import { Notification } from "./Notification/Notification"
-import { PhoneBook } from "./PhoneBook/PhoneBook";
+import { Statistics } from "./Feedback/Statistics/Statistics";
+import { FeedbackStats } from "./Feedback/FeedbackStats/FeedbackStats";
+import { FeedbackOptions } from "./Feedback/FeedbackOptions/FeedbackOptions";
+import { Section } from "./Feedback/Section/Section"
+import { Notification } from "./Feedback/Notification/Notification"
+import { Phonebook } from "./Contacts/Phonebook/Phonebook";
 
-// const [phoneNumber, setPhoneNumber] = useState("");
-    
-const [contacts, setContacts] = useState([]);
-const [name, setName] = useState("");
-
-
+   
 export const App = () => {
+
+  const [contacts, setContacts] = useState([]);
+  const [name, setName] = useState("");
+  const [number, setNumber] = useState("");
+  
   return (
     <>
       <div
@@ -33,8 +33,7 @@ export const App = () => {
       <Notification />
       <FeedbackStats options="options" onLeaveFeedback="options" />
 
-      <PhoneBook contacts="contacts" name="name"/>
-
+      <Phonebook contacts="contacts" name="name" number="number"/>
     </>
   );
 };

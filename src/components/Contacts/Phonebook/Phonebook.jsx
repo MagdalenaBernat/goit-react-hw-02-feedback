@@ -1,13 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+import FindContact from "./FindContact/FndContact"
 
+export const Phonebook = () => {
 
-export const PhoneBook = () => {
-
-    const addContact = (e) => {
+    const addContact = (name, number) => {
         return (
-            <li>{e.target.value}</li>
+            <li>{name.target.value}: {number.target.value}</li>
         )
     }
 
@@ -23,22 +22,28 @@ export const PhoneBook = () => {
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
                 />
+                <p>Number</p>
+                <input
+                    type="tel"
+                    name="number"
+                    pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
+                    title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
+                    required
+                />
                 <button type="button" onClick={addContact}>Add contact</button>
             </div>
             <h2>Contacts</h2>
             <ul>
                 {addContact}
             </ul>
+            <FindContact/>
         </>
     )
 }
 
-
-
 PhoneBook.propTypes = {
-    // goodEvaluation: PropTypes.number,
-    // neutralEvaluation: PropTypes.number,
-    // badEvaluation: PropTypes.number,
-    // countTotalFeedback: PropTypes.number,
-    // countPositiveFeedbackPercentage: PropTypes.number
+    contacts: PropTypes.array,
+    filter: PropTypes.string,
+    name: PropTypes.string,
+    number: PropTypes.string
 }
