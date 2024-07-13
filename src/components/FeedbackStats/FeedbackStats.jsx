@@ -3,23 +3,28 @@ import { useState } from 'react'
 import PropTypes from 'prop-types'
 import css from './FeedbackStats.module.css'
 
-export const FeedbackStats = () => {
+export const FeedbackStats = (initialValue = 0, step = 1) => {
 
-    const [goodEvaluation, setGoodEvaluation] = useState(0);
-    const [neutralEvaluation, setNeutralEvaluation] = useState(0);
-    const [badEvaluation, setBadEvaluation] = useState(0);
+    const [goodEvaluation, setGoodEvaluation] = useState(initialValue);
+    const [neutralEvaluation, setNeutralEvaluation] = useState(initialValue);
+    const [badEvaluation, setBadEvaluation] = useState(initialValue);
+
+    // const [phoneNumber, setPhoneNumber] = useState("");
 
     const onGoodClick = () => {
-        setGoodEvaluation(prevValue => prevValue + 1)
+        setGoodEvaluation(prevValue => prevValue + step)
     }
 
     const onNeutralClick = () => {
-        setNeutralEvaluation(prevValue => prevValue + 1)
+        setNeutralEvaluation(prevValue => prevValue + step)
     }
 
     const onBadClick = () => {
-        setBadEvaluation(prevValue => prevValue + 1)
+        setBadEvaluation(prevValue => prevValue + step)
     }
+
+    const totalValue = goodEvaluation + neutralEvaluation + badEvaluation;
+    const positiveFeedback = goodEvaluation * 100 / totalValue;
 
     return (
         <>
@@ -32,8 +37,13 @@ export const FeedbackStats = () => {
                 <p>Good: {goodEvaluation}</p>
                 <p>Neutral: {neutralEvaluation}</p>
                 <p>Bad: {badEvaluation}</p>
+                <p>Total: {totalValue}</p>
+                <p>Positive feedback: {positiveFeedback}%</p>
             </div>
 
+
+
+            {/* <input value={phoneNumber} onChange={e => setPhoneNumber(Number(e.target.value))} /> */}
         </>
     )
 }
