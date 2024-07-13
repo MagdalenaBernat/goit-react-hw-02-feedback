@@ -24,8 +24,8 @@ export const FindContact = () => {
   const filteredContacts = getFilteredContacts();
 
   return (
-    <div className="App">
-      <h1>Contact List</h1>
+    <div className="contacts">
+      <h2>Contacts</h2>
       <input
         type="text"
         placeholder="Search contacts"
