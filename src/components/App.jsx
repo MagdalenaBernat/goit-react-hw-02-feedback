@@ -1,5 +1,10 @@
 import { Statistics } from "./Statistics/Statistics";
+import { FeedbackStats } from "./FeedbackStats/FeedbackStats";
 import { FeedbackOptions } from "./FeedbackOptions/FeedbackOptions";
+import { Section } from "./Section/Section"
+import { Notification } from "./Notification/Notification"
+
+    // const [phoneNumber, setPhoneNumber] = useState("");
 
 export const App = () => {
   return (
@@ -16,8 +21,13 @@ export const App = () => {
       >
       React homework 2 - feedback
       </div>
-      <Statistics good="goodEvaluation" neutral="neutralEvaluation" bad="badEvaluation" total="total" positivePercentage="positivePercentage" /> 
-      <FeedbackOptions options="options" onLeaveFeedback="options" />
+      <Section title="Please leave feedback" />
+      <FeedbackOptions />
+      <Statistics good="goodEvaluation" neutral="neutralEvaluation" bad="badEvaluation" total="countTotalFeedback" positivePercentage="countPositiveFeedbackPercentage" /> 
+      <Notification />
+      <FeedbackStats options="options" onLeaveFeedback="options" />
+
+
     </>
   );
 };

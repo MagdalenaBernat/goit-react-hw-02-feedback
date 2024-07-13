@@ -1,18 +1,16 @@
 import React from 'react'
-import { useState } from 'react'
 import PropTypes from 'prop-types'
-import css from './FeedbackStats.module.css'
+import { useState } from 'react'
+// import css from './FeedbackStats.module.css'
 
 export const FeedbackStats = (initialValue = 0, step = 1) => {
 
-    const [goodEvaluation, setGoodEvaluation] = useState(initialValue);
-    const [neutralEvaluation, setNeutralEvaluation] = useState(initialValue);
-    const [badEvaluation, setBadEvaluation] = useState(initialValue);
-
-    // const [phoneNumber, setPhoneNumber] = useState("");
+  const [goodEvaluation, setGoodEvaluation] = useState(initialValue);
+  const [neutralEvaluation, setNeutralEvaluation] = useState(initialValue);
+  const [badEvaluation, setBadEvaluation] = useState(initialValue);
 
     const onGoodClick = () => {
-        setGoodEvaluation(prevValue => prevValue + step)
+    setGoodEvaluation(prevValue => prevValue + step)
     }
 
     const onNeutralClick = () => {
@@ -23,10 +21,16 @@ export const FeedbackStats = (initialValue = 0, step = 1) => {
         setBadEvaluation(prevValue => prevValue + step)
     }
 
-    const totalValue = goodEvaluation + neutralEvaluation + badEvaluation;
-    const positiveFeedback = goodEvaluation * 100 / totalValue;
+    const countTotalFeedback = () => {
+        return goodEvaluation + neutralEvaluation + badEvaluation
+    }
+
+    const countPositiveFeedbackPercentage = () => {
+        return goodEvaluation * 100 / countTotalFeedback
+    }
 
     return (
+
         <>
             <h2>Please leave feedback</h2>
             <button type="button" onClick={onGoodClick}>Good</button>
@@ -37,28 +41,19 @@ export const FeedbackStats = (initialValue = 0, step = 1) => {
                 <p>Good: {goodEvaluation}</p>
                 <p>Neutral: {neutralEvaluation}</p>
                 <p>Bad: {badEvaluation}</p>
-                <p>Total: {totalValue}</p>
-                <p>Positive feedback: {positiveFeedback}%</p>
+                <p>Total: {countTotalFeedback}</p>
+                <p>Positive feedback: {countPositiveFeedbackPercentage}%</p>
             </div>
 
-
-
-            {/* <input value={phoneNumber} onChange={e => setPhoneNumber(Number(e.target.value))} /> */}
+            {/* <input value={phoneNumber} onChange={e => setPhoneNumber(Number(e.target.value))} /> */ }
         </>
     )
 }
 
 FeedbackStats.propTypes = {
-    good: PropTypes.number,
-    neutral: PropTypes.number,
-    bad: PropTypes.number,
-    total: PropTypes.number,
-    positivePercentage: PropTypes.number
-}
-
-
-state = {
-  good: 0,
-  neutral: 0,
-  bad: 0
+    goodEvaluation: PropTypes.number,
+    neutralEvaluation: PropTypes.number,
+    badEvaluation: PropTypes.number,
+    countTotalFeedback: PropTypes.number,
+    countPositiveFeedbackPercentage: PropTypes.number
 }
