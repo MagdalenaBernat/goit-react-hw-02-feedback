@@ -16,7 +16,7 @@ export const App = () => {
       >
       React homework 2 - feedback
       </div>
-      <Statistics good="good" neutral="neutral" bad="bad" total="total" positivePercentage="positivePercentage" /> 
+      <Statistics good="goodEvaluation" neutral="neutralEvaluation" bad="badEvaluation" total="total" positivePercentage="positivePercentage" /> 
       <FeedbackOptions options="options" onLeaveFeedback="options" />
     </>
   );
