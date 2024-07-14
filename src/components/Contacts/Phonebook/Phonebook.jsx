@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import FindContact from "./FindContact/FndContact"
+import { FindContact } from "../FindContact/FindContact"
 
 export const Phonebook = () => {
 
