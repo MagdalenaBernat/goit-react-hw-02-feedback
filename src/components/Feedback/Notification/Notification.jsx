@@ -4,8 +4,7 @@ export const Notification = ({ message = "There is no feedback" }) => {
             if () {
                 <p>{message}</p>
             } else {
-                //cały komponent ze statystykami 
-                    
+        
             }
         </>
     )
